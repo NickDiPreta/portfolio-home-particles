@@ -1,14 +1,11 @@
 import React from 'react';
-import Particles from "react-tsparticles";
-import logo from './logo.svg';
 import './App.css';
-import particlesOptions from "./particles.json";
+import Home from "./components/Home"
 
 function App() {
     return (
         <div className="App">
-            <Particles options={particlesOptions}/>
-         
+            <Home />
         </div>
     );
 }

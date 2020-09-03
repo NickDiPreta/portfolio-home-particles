@@ -2,7 +2,7 @@
   "autoPlay": true,
   "background": {
     "color": {
-      "value": "#121212"
+      "value": "#000114"
     },
     "image": "",
     "position": "50% 50%",
@@ -13,15 +13,15 @@
   "backgroundMask": {
     "cover": {
       "color": {
-        "value": "#000000"
+        "value": "#fff"
       },
       "opacity": 1
     },
-    "enable": true
+    "enable": false
   },
   "backgroundMode": {
     "enable": true,
-    "zIndex": 0
+    "zIndex": 1
   },
   "detectRetina": true,
   "fpsLimit": 60,
@@ -41,16 +41,16 @@
       },
       "onDiv": {
         "selectors": [],
-        "enable": false,
+        "enable": true,
         "mode": [],
         "type": "rectangle"
       },
       "onHover": {
         "enable": true,
-        "mode": "connect",
+        "mode": "repulse",
         "parallax": {
-          "enable": true,
-          "force": 5,
+          "enable": false,
+          "force": 2,
           "smooth": 10
         }
       },
@@ -71,7 +71,7 @@
       "connect": {
         "distance": 80,
         "links": {
-          "opacity": 0.6
+          "opacity": 0.5
         },
         "radius": 60
       },
@@ -194,7 +194,7 @@
       "value": "#ff0000",
       "animation": {
         "enable": true,
-        "speed": 10,
+        "speed": 20,
         "sync": true
       }
     },
@@ -218,39 +218,34 @@
       }
     },
     "links": {
-      "blink": true,
+      "blink": false,
       "color": {
         "value": "#ffffff"
       },
-      "consent": true,
+      "consent": false,
       "distance": 100,
       "enable": true,
-      "opacity": 0.84,
+      "opacity": 0.4,
       "shadow": {
-        "blur": true,
+        "blur": 5,
         "color": {
-          "value": "#e1f9e1"
+          "value": "#00ff00"
         },
-        "enable": true
+        "enable": false
       },
       "triangles": {
-        "enable": false,
-        "opacity": 0.73,
-        "color": {
-          "value": "#050505"
-        }
+        "enable": false
       },
       "width": 1,
-      "warp": true
+      "warp": false
     },
     "move": {
       "angle": {
         "offset": 45,
-        "value": 90,
-        "angle": 45
+        "value": 90
       },
       "attract": {
-        "enable": true,
+        "enable": false,
         "rotate": {
           "x": 600,
           "y": 1200
@@ -264,23 +259,23 @@
             "enable": false,
             "minimumValue": 0
           },
-          "value": 6
+          "value": 0
         },
-        "enable": true
+        "enable": false
       },
       "outMode": "out",
       "random": false,
-      "speed": 1,
+      "speed": 6,
       "straight": false,
       "trail": {
-        "enable": true,
-        "length": 2,
+        "enable": false,
+        "length": 10,
         "fillColor": {
-          "value": "#1f1f1f"
+          "value": "#000000"
         }
       },
       "vibrate": false,
-      "warp": true
+      "warp": false
     },
     "number": {
       "density": {
@@ -302,25 +297,25 @@
         "enable": false,
         "minimumValue": 1
       },
-      "value": 0.75
+      "value": 0.5
     },
     "rotate": {
       "animation": {
-        "enable": true,
-        "speed": 8,
-        "sync": true
+        "enable": false,
+        "speed": 0,
+        "sync": false
       },
-      "direction": "random",
-      "path": true,
-      "random": true,
-      "value": 2
+      "direction": "clockwise",
+      "path": false,
+      "random": false,
+      "value": 0
     },
     "shadow": {
-      "blur": 1,
+      "blur": 0,
       "color": {
         "value": "#000000"
       },
-      "enable": true,
+      "enable": false,
       "offset": {
         "x": 0,
         "y": 0

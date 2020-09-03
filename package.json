@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "framer-motion": "^2.6.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3",
+    "react-spring": "^8.0.27",
     "react-tsparticles": "^1.17.10"
   },
   "scripts": {
