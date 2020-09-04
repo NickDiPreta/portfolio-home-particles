@@ -5,6 +5,7 @@ import particlesOptions from "./particles.json";
 import Particles from "react-tsparticles";
 import Header from "./Header";
 
+
 const Variants = {
   hidden: {
     opacity:0,
@@ -38,6 +39,7 @@ const Home = (props) => {
       <motion.button className="home-button"variants={Variants} initial="hidden" animate="visible" whileHover="hover">
         Enter
       </motion.button>
+      
     </div>
   );
 };
