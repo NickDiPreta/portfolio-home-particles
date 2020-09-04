@@ -1,5 +1,6 @@
-import React from "react";
-import { motion, useSpring } from "framer-motion";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { useSpring, animated } from "react-spring";
 
 const svgVariants = {
   hidden: {
@@ -10,7 +11,7 @@ const svgVariants = {
     y: 0,
     x: 0,
 
-    transition: { staggerChildren: 0.07, staggerDirection:1 },
+    transition: { staggerChildren: 0.07, staggerDirection: 1 },
   },
 };
 
@@ -20,15 +21,14 @@ const pathTwoVariants = {
     opacity: 0,
     fill: "none",
     strokeWidth: 3,
-    pathLength: .5,
+    pathLength: 0.5,
     pathOffset: 0.5,
   },
   visible: {
     stroke: "blue",
-    pathOffset: -.5,
+    pathOffset: -0.5,
     strokeWidth: 4,
-    
-    
+
     opacity: 1,
     transition: {
       duration: 1.1,
@@ -38,34 +38,37 @@ const pathTwoVariants = {
 const pathThreeVariants = {
   hidden: {
     fill: "white",
-    opacity:0,
-    stroke:"white",
+    opacity: 0,
+    stroke: "white",
     strokeWidth: 4,
-    
   },
   visible: {
     fill: "white",
     Opacity: 1,
-    
+
     transition: {
-        
       duration: 1.4,
     },
   },
 };
 
 const HeadSvg = () => {
+  const [isHovered, setHovered] = useState(false);
+
   return (
-    <motion.div variants={svgVariants}>
+    <motion.div className="name-header" variants={svgVariants}>
       <motion.svg
         className="svg-wrapper"
-        width="927"
-        height="113"
+        width="100%"
+        height="100%"
         viewBox="0 0 927 113"
         xmlns="http://www.w3.org/2000/svg"
         variants={svgVariants}
         initial="hidden"
         animate="visible"
+        filter="url(#blur)"
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
       >
         <motion.path
           fill="white"
@@ -246,6 +249,33 @@ const HeadSvg = () => {
           mask="url(#path-1-outside-1)"
           variants={pathThreeVariants}
         />
+
+        <filter
+          id="blur"
+    
+         height="300%" width="300%" x="-75%" y="-75%">
+		
+          <feMorphology operator="dilate" radius="2" in="SourceAlpha" result="thicken" />
+  
+          
+          <feGaussianBlur in="thicken" stdDeviation="10" result="blurred" />
+  
+          
+          <feFlood flood-color="rgba(254,65,123,0.8)" result="glowColor" />
+  
+          
+          <feComposite in="glowColor" in2="blurred" operator="in" result="softGlow_colored" />
+  
+          
+          <feMerge>
+              <feMergeNode in="softGlow_colored"/>
+              <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+  
+      
+          
+      </filter>
+   
       </motion.svg>
       ;
     </motion.div>
