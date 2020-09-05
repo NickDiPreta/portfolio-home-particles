@@ -35,7 +35,7 @@ const pathTwoVariants = {
       type: "spring",
       yoyo: Infinity,
       duration: 4,
-      
+      repeatDelay:8,
       ease:"easeInOut"
     },
   },
@@ -53,6 +53,7 @@ const pathThreeVariants = {
 
     transition: {
       duration: 4,
+      repeatDelay:8,
       yoyo: Infinity,
       ease: "easeInOut",
     },
@@ -74,7 +75,7 @@ const HeadSvg = () => {
         initial="hidden"
         animate="visible"
         filter="url(#blur)"
-        onMouseEnter={() => setHovered(true)}
+        onMouseEnter={() => setHovered(false)}
         onMouseLeave={() => setHovered(false)}
       >
         <motion.path
