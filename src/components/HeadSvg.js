@@ -17,37 +17,44 @@ const svgVariants = {
 
 const pathTwoVariants = {
   hidden: {
-    stroke: "blue",
-    opacity: 0,
+    stroke:"#06D6A0",
+    opacity: 0.5,
     fill: "none",
-    strokeWidth: 3,
-    pathLength: 0.5,
-    pathOffset: 0.5,
+    strokeWidth: 2,
+    pathLength: 1,
+    pathOffset: 0,
   },
   visible: {
-    stroke: "blue",
-    pathOffset: -0.5,
-    strokeWidth: 4,
-
+    stroke: ["#EF476F", "#FFD166", "#118AB2"],
+    pathOffset: -1,
+    strokeWidth: 2,
     opacity: 1,
     transition: {
-      duration: 1.1,
+      damping: 10,
+      stiffness: 50,
+      type: "spring",
+      yoyo: Infinity,
+      duration: 4,
+      
+      ease:"easeInOut"
     },
   },
 };
 const pathThreeVariants = {
   hidden: {
     fill: "white",
-    opacity: 0,
+    opacity: 0.1,
     stroke: "white",
-    strokeWidth: 4,
+    strokeWidth: 10,
   },
   visible: {
     fill: "white",
     Opacity: 1,
 
     transition: {
-      duration: 1.4,
+      duration: 4,
+      yoyo: Infinity,
+      ease: "easeInOut",
     },
   },
 };
@@ -249,33 +256,34 @@ const HeadSvg = () => {
           mask="url(#path-1-outside-1)"
           variants={pathThreeVariants}
         />
+        {!isHovered ? (
+          <filter id="blur" height="300%" width="300%" x="-75%" y="-75%">
+            <feMorphology
+              operator="dilate"
+              radius="2"
+              in="SourceAlpha"
+              result="thicken"
+            />
 
-        <filter
-          id="blur"
-    
-         height="300%" width="300%" x="-75%" y="-75%">
-		
-          <feMorphology operator="dilate" radius="2" in="SourceAlpha" result="thicken" />
-  
-          
-          <feGaussianBlur in="thicken" stdDeviation="10" result="blurred" />
-  
-          
-          <feFlood flood-color="rgba(254,65,123,0.8)" result="glowColor" />
-  
-          
-          <feComposite in="glowColor" in2="blurred" operator="in" result="softGlow_colored" />
-  
-          
-          <feMerge>
-              <feMergeNode in="softGlow_colored"/>
-              <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-  
-      
-          
-      </filter>
-   
+            <feGaussianBlur in="thicken" stdDeviation="10" result="blurred" />
+
+            <feFlood flood-color="rgba(122,73,165,0.8)" result="glowColor" />
+
+            <feComposite
+              in="glowColor"
+              in2="blurred"
+              operator="in"
+              result="softGlow_colored"
+            />
+
+            <feMerge>
+              <feMergeNode in="softGlow_colored" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        ) : (
+          ""
+        )}
       </motion.svg>
       ;
     </motion.div>
