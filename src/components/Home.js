@@ -35,7 +35,7 @@ const Home = (props) => {
     <div className="home">
       <Particles options={particlesOptions} />
       <Header />
-      <motion.div className="home-button-container">
+      {/* <motion.div className="home-button-container">
       <motion.button
         className="home-button"
         variants={ButtonOneVariants}
@@ -63,7 +63,7 @@ const Home = (props) => {
       >
         Skills
       </motion.button>
-      </motion.div>
+      </motion.div> */}
     </div>
   );
 };
